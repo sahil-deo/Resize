@@ -1,0 +1,43 @@
+[gd_scene load_steps=5 format=3 uid="uid://cyggdj8rmhrno"]
+
+[ext_resource type="Texture2D" uid="uid://cbvng7u4mkexl" path="res://Assets/sprites/player/red.png" id="1_bwd2j"]
+[ext_resource type="Script" path="res://Scripts/player.gd" id="1_c4qf6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h3vwt"]
+size = Vector2(31, 31)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lk0m6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_bwd2j")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="player" type="CharacterBody2D"]
+scale = Vector2(2, 2)
+script = ExtResource("1_c4qf6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_h3vwt")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_lk0m6")
+
+[node name="right" type="RayCast2D" parent="."]
+target_position = Vector2(50, 0)
+
+[node name="left" type="RayCast2D" parent="."]
+target_position = Vector2(-50, 0)
+
+[node name="up" type="RayCast2D" parent="."]
+target_position = Vector2(0, -50)
+
+[node name="upRight" type="RayCast2D" parent="."]
+target_position = Vector2(35, -35)
+
+[node name="upLeft" type="RayCast2D" parent="."]
+target_position = Vector2(-35, -35)

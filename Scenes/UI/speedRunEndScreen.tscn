@@ -1,0 +1,137 @@
+[gd_scene load_steps=17 format=3 uid="uid://ba5ni20jms3m5"]
+
+[ext_resource type="Script" path="res://Scripts/UI/speedRunEndScreen.gd" id="1_8bn5w"]
+[ext_resource type="FontFile" uid="uid://ba12ijup4tb8f" path="res://Assets/Font/ThaleahFat.ttf" id="1_uk7qa"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f5wde"]
+bg_color = Color(0.176419, 0.176419, 0.176419, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0, 0, 0, 1)
+border_blend = true
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+expand_margin_left = 50.0
+expand_margin_top = 20.0
+expand_margin_right = 50.0
+expand_margin_bottom = 20.0
+shadow_color = Color(0, 0, 0, 1)
+shadow_size = 3
+shadow_offset = Vector2(3, 3)
+anti_aliasing = false
+anti_aliasing_size = 0.01
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_l2bix"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5kqre"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0ukq4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_eyu3t"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_n0akm"]
+
+[sub_resource type="Theme" id="Theme_l06yu"]
+default_font = ExtResource("1_uk7qa")
+default_font_size = 45
+Button/colors/font_color = Color(0, 0, 0, 1)
+Button/colors/font_focus_color = Color(0, 0, 0, 1)
+Button/colors/font_hover_color = Color(0.183589, 0.183591, 0.183591, 1)
+Button/colors/font_hover_pressed_color = Color(0.52549, 0.52549, 0.52549, 1)
+Button/colors/font_pressed_color = Color(0.525101, 0.525101, 0.525101, 1)
+Button/colors/icon_focus_color = Color(0, 0, 0, 1)
+Button/font_sizes/font_size = 60
+Button/fonts/font = ExtResource("1_uk7qa")
+Button/styles/disabled = SubResource("StyleBoxEmpty_l2bix")
+Button/styles/focus = SubResource("StyleBoxEmpty_5kqre")
+Button/styles/hover = SubResource("StyleBoxEmpty_0ukq4")
+Button/styles/normal = SubResource("StyleBoxEmpty_eyu3t")
+Button/styles/pressed = SubResource("StyleBoxEmpty_n0akm")
+
+[sub_resource type="Theme" id="Theme_ae1rg"]
+default_font = ExtResource("1_uk7qa")
+default_font_size = 30
+Button/colors/font_color = Color(0, 0, 0, 1)
+Button/colors/font_focus_color = Color(0, 0, 0, 1)
+Button/colors/font_hover_color = Color(0.183589, 0.183591, 0.183591, 1)
+Button/colors/font_hover_pressed_color = Color(0.52549, 0.52549, 0.52549, 1)
+Button/colors/font_pressed_color = Color(0.525101, 0.525101, 0.525101, 1)
+Button/colors/icon_focus_color = Color(0, 0, 0, 1)
+Button/font_sizes/font_size = 60
+Button/fonts/font = ExtResource("1_uk7qa")
+Button/styles/disabled = SubResource("StyleBoxEmpty_l2bix")
+Button/styles/focus = SubResource("StyleBoxEmpty_5kqre")
+Button/styles/hover = SubResource("StyleBoxEmpty_0ukq4")
+Button/styles/normal = SubResource("StyleBoxEmpty_eyu3t")
+Button/styles/pressed = SubResource("StyleBoxEmpty_n0akm")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xc6i2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5h2rb"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3vtl5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mbiah"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sya57"]
+
+[sub_resource type="Theme" id="Theme_20jl7"]
+Button/colors/font_color = Color(0, 0, 0, 1)
+Button/colors/font_focus_color = Color(0, 0, 0, 1)
+Button/colors/font_hover_color = Color(0.183589, 0.183591, 0.183591, 1)
+Button/colors/font_hover_pressed_color = Color(0.52549, 0.52549, 0.52549, 1)
+Button/colors/font_pressed_color = Color(0.525101, 0.525101, 0.525101, 1)
+Button/colors/icon_focus_color = Color(0, 0, 0, 1)
+Button/font_sizes/font_size = 60
+Button/fonts/font = ExtResource("1_uk7qa")
+Button/styles/disabled = SubResource("StyleBoxEmpty_xc6i2")
+Button/styles/focus = SubResource("StyleBoxEmpty_5h2rb")
+Button/styles/hover = SubResource("StyleBoxEmpty_3vtl5")
+Button/styles/normal = SubResource("StyleBoxEmpty_mbiah")
+Button/styles/pressed = SubResource("StyleBoxEmpty_sya57")
+
+[node name="speedRunScreen" type="CenterContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+script = ExtResource("1_8bn5w")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_f5wde")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+theme_override_constants/separation = 55
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_l06yu")
+text = "You have finished your 
+run in x seconds!"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_ae1rg")
+text = "Share your score in comments to let
+others know about it"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_20jl7")
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 56
+text = "Back to Menu"
+
+[connection signal="button_up" from="PanelContainer/VBoxContainer/Button" to="." method="_on_button_button_up"]
+[connection signal="mouse_entered" from="PanelContainer/VBoxContainer/Button" to="." method="_on_button_mouse_entered"]

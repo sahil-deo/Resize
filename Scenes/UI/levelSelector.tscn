@@ -1,0 +1,173 @@
+[gd_scene load_steps=7 format=3 uid="uid://yphdjp2k6lmp"]
+
+[ext_resource type="Script" path="res://Scenes/UI/levelSelector.gd" id="1_x3pg2"]
+[ext_resource type="FontFile" uid="uid://ba12ijup4tb8f" path="res://Assets/Font/ThaleahFat.ttf" id="1_yxy0h"]
+[ext_resource type="StyleBox" uid="uid://kfl3d7ugj0ee" path="res://Themes/LevelButtonTextureStyle.tres" id="2_6340u"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_coajt"]
+content_margin_left = 50.0
+content_margin_top = 0.0
+content_margin_right = 50.0
+content_margin_bottom = 25.0
+bg_color = Color(0.21, 0.21, 0.21, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+expand_margin_left = 10.0
+expand_margin_top = 10.0
+expand_margin_right = 10.0
+expand_margin_bottom = 10.0
+shadow_size = 2
+shadow_offset = Vector2(3, 3)
+
+[sub_resource type="Theme" id="Theme_qgetu"]
+Button/font_sizes/font_size = 43
+Button/fonts/font = ExtResource("1_yxy0h")
+Button/styles/disabled = ExtResource("2_6340u")
+Button/styles/focus = ExtResource("2_6340u")
+Button/styles/hover = ExtResource("2_6340u")
+Button/styles/normal = ExtResource("2_6340u")
+Button/styles/pressed = ExtResource("2_6340u")
+
+[sub_resource type="Theme" id="Theme_vig8t"]
+Button/font_sizes/font_size = 43
+Button/fonts/font = ExtResource("1_yxy0h")
+Button/styles/disabled = ExtResource("2_6340u")
+Button/styles/focus = ExtResource("2_6340u")
+Button/styles/hover = ExtResource("2_6340u")
+Button/styles/normal = ExtResource("2_6340u")
+Button/styles/pressed = ExtResource("2_6340u")
+
+[node name="LevelSelector" type="Node2D"]
+script = ExtResource("1_x3pg2")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+offset_left = 422.0
+offset_top = 236.0
+offset_right = 858.0
+offset_bottom = 483.0
+
+[node name="PanelContainer" type="PanelContainer" parent="CenterContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_coajt")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Label" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_yxy0h")
+theme_override_font_sizes/font_size = 111
+text = "Levels"
+
+[node name="row1" type="HBoxContainer" parent="CenterContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 20
+
+[node name="level1" type="Button" parent="CenterContainer/PanelContainer/VBoxContainer/row1"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = SubResource("Theme_qgetu")
+text = "1"
+
+[node name="level2" type="Button" parent="CenterContainer/PanelContainer/VBoxContainer/row1"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme = SubResource("Theme_qgetu")
+text = "2"
+
+[node name="level3" type="Button" parent="CenterContainer/PanelContainer/VBoxContainer/row1"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme = SubResource("Theme_qgetu")
+text = "3"
+
+[node name="row2" type="HBoxContainer" parent="CenterContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 20
+
+[node name="level4" type="Button" parent="CenterContainer/PanelContainer/VBoxContainer/row2"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme = SubResource("Theme_qgetu")
+text = "4"
+
+[node name="level5" type="Button" parent="CenterContainer/PanelContainer/VBoxContainer/row2"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme = SubResource("Theme_qgetu")
+text = "5"
+
+[node name="level6" type="Button" parent="CenterContainer/PanelContainer/VBoxContainer/row2"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme = SubResource("Theme_qgetu")
+text = "6
+"
+icon_alignment = 1
+
+[node name="row3" type="HBoxContainer" parent="CenterContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 20
+
+[node name="level7" type="Button" parent="CenterContainer/PanelContainer/VBoxContainer/row3"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme = SubResource("Theme_qgetu")
+text = "7"
+
+[node name="level8" type="Button" parent="CenterContainer/PanelContainer/VBoxContainer/row3"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme = SubResource("Theme_qgetu")
+text = "8"
+
+[node name="speedRunMode" type="Button" parent="CenterContainer/PanelContainer/VBoxContainer/row3"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme = SubResource("Theme_vig8t")
+theme_override_font_sizes/font_size = 16
+text = "Speed 
+Run
+Mode"
+icon_alignment = 1
+
+[node name="backButton" type="Button" parent="."]
+custom_minimum_size = Vector2(40, 40)
+offset_left = 424.0
+offset_top = 240.0
+offset_right = 464.0
+offset_bottom = 280.0
+scale = Vector2(0.64, 0.64)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = SubResource("Theme_qgetu")
+text = "<"
+
+[connection signal="button_up" from="CenterContainer/PanelContainer/VBoxContainer/row1/level1" to="." method="_on_level_1_button_up"]
+[connection signal="mouse_entered" from="CenterContainer/PanelContainer/VBoxContainer/row1/level1" to="." method="_on_level_1_mouse_entered"]
+[connection signal="button_up" from="CenterContainer/PanelContainer/VBoxContainer/row1/level2" to="." method="_on_level_2_button_up"]
+[connection signal="mouse_entered" from="CenterContainer/PanelContainer/VBoxContainer/row1/level2" to="." method="_on_level_2_mouse_entered"]
+[connection signal="button_up" from="CenterContainer/PanelContainer/VBoxContainer/row1/level3" to="." method="_on_level_3_button_up"]
+[connection signal="mouse_entered" from="CenterContainer/PanelContainer/VBoxContainer/row1/level3" to="." method="_on_level_3_mouse_entered"]
+[connection signal="button_up" from="CenterContainer/PanelContainer/VBoxContainer/row2/level4" to="." method="_on_level_4_button_up"]
+[connection signal="mouse_entered" from="CenterContainer/PanelContainer/VBoxContainer/row2/level4" to="." method="_on_level_4_mouse_entered"]
+[connection signal="button_up" from="CenterContainer/PanelContainer/VBoxContainer/row2/level5" to="." method="_on_level_5_button_up"]
+[connection signal="mouse_entered" from="CenterContainer/PanelContainer/VBoxContainer/row2/level5" to="." method="_on_level_5_mouse_entered"]
+[connection signal="button_up" from="CenterContainer/PanelContainer/VBoxContainer/row2/level6" to="." method="_on_level_6_button_up"]
+[connection signal="mouse_entered" from="CenterContainer/PanelContainer/VBoxContainer/row2/level6" to="." method="_on_level_6_mouse_entered"]
+[connection signal="button_up" from="CenterContainer/PanelContainer/VBoxContainer/row3/level7" to="." method="_on_level_7_button_up"]
+[connection signal="mouse_entered" from="CenterContainer/PanelContainer/VBoxContainer/row3/level7" to="." method="_on_level_7_mouse_entered"]
+[connection signal="button_up" from="CenterContainer/PanelContainer/VBoxContainer/row3/level8" to="." method="_on_level_8_button_up"]
+[connection signal="mouse_entered" from="CenterContainer/PanelContainer/VBoxContainer/row3/level8" to="." method="_on_level_8_mouse_entered"]
+[connection signal="button_up" from="CenterContainer/PanelContainer/VBoxContainer/row3/speedRunMode" to="." method="_on_speed_run_mode_button_up"]
+[connection signal="mouse_entered" from="CenterContainer/PanelContainer/VBoxContainer/row3/speedRunMode" to="." method="_on_speed_run_mode_mouse_entered"]
+[connection signal="button_up" from="backButton" to="." method="_on_back_button_button_up"]
+[connection signal="mouse_entered" from="backButton" to="." method="_on_back_button_mouse_entered"]

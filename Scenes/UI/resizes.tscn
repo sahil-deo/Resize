@@ -1,0 +1,52 @@
+[gd_scene load_steps=5 format=3 uid="uid://bf5fksni5ki2t"]
+
+[ext_resource type="Script" path="res://Scripts/UI/resizes.gd" id="1_c67an"]
+[ext_resource type="Texture2D" uid="uid://cwm8qwuuu6v1c" path="res://Assets/sprites/UI/up.png" id="1_q26ll"]
+[ext_resource type="Texture2D" uid="uid://dk4nwwyj2fie1" path="res://Assets/sprites/UI/down.png" id="2_ay8bi"]
+[ext_resource type="FontFile" uid="uid://ba12ijup4tb8f" path="res://Assets/Font/ThaleahFat.ttf" id="2_hh0s6"]
+
+[node name="Resize" type="Node2D"]
+script = ExtResource("1_c67an")
+
+[node name="up" type="TextureRect" parent="."]
+offset_top = 8.0
+offset_right = 68.0
+offset_bottom = 76.0
+texture = ExtResource("1_q26ll")
+
+[node name="up" type="Label" parent="up"]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 49.0
+offset_right = 65.0
+offset_bottom = 79.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0.99558, 0.99558, 0.99558, 1)
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("2_hh0s6")
+theme_override_font_sizes/font_size = 32
+text = "69"
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="down" type="TextureRect" parent="."]
+offset_left = 70.0
+offset_top = 8.0
+offset_right = 138.0
+offset_bottom = 76.0
+texture = ExtResource("2_ay8bi")
+
+[node name="down" type="Label" parent="down"]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 49.0
+offset_right = 65.0
+offset_bottom = 79.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0.99558, 0.99558, 0.99558, 1)
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("2_hh0s6")
+theme_override_font_sizes/font_size = 32
+text = "69"
+horizontal_alignment = 2
+vertical_alignment = 2

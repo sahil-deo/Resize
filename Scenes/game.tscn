@@ -1,0 +1,103 @@
+[gd_scene load_steps=17 format=3 uid="uid://dchlns7up22ox"]
+
+[ext_resource type="Script" path="res://Scripts/game.gd" id="1_dqk01"]
+[ext_resource type="Texture2D" uid="uid://ch0y0vqa8fmwn" path="res://Assets/sprites/environment/bg2.png" id="2_icrwi"]
+[ext_resource type="PackedScene" uid="uid://cyggdj8rmhrno" path="res://Scenes/player.tscn" id="2_qaxi7"]
+[ext_resource type="PackedScene" uid="uid://bu6mp1doc3k1p" path="res://Scenes/goal.tscn" id="3_f2yjp"]
+[ext_resource type="PackedScene" uid="uid://cphm13yhxemob" path="res://Scenes/UI/PauseMenu.tscn" id="4_0e62b"]
+[ext_resource type="PackedScene" uid="uid://bf5fksni5ki2t" path="res://Scenes/UI/resizes.tscn" id="4_187qn"]
+[ext_resource type="Texture2D" uid="uid://ctlmpgvpsw7mu" path="res://Assets/sprites/UI/pauseButton.png" id="4_uute6"]
+[ext_resource type="Theme" uid="uid://mnlbhuqdvhpm" path="res://Themes/GameNameText Theme.tres" id="5_quuf8"]
+[ext_resource type="Script" path="res://Scripts/uiController.gd" id="5_s7beh"]
+[ext_resource type="PackedScene" uid="uid://cb0v5gklkhxps" path="res://Scenes/MainMenu.tscn" id="8_undwo"]
+[ext_resource type="PackedScene" uid="uid://gk78wwxymtu7" path="res://Scenes/UI/runTime.tscn" id="9_r84ah"]
+[ext_resource type="PackedScene" uid="uid://ba5ni20jms3m5" path="res://Scenes/UI/speedRunEndScreen.tscn" id="10_0hm3l"]
+[ext_resource type="PackedScene" uid="uid://yphdjp2k6lmp" path="res://Scenes/UI/levelSelector.tscn" id="10_cpv2l"]
+[ext_resource type="PackedScene" uid="uid://tf4dcfxiknn7" path="res://Scenes/UI/outOfMessage.tscn" id="12_4tu4k"]
+[ext_resource type="PackedScene" uid="uid://hw4njswyoou7" path="res://Scenes/UI/Intro.tscn" id="13_ghpgm"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_smhhb"]
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_dqk01")
+
+[node name="Bg" type="Sprite2D" parent="."]
+position = Vector2(619, 361)
+scale = Vector2(3.61039, 3.61039)
+texture = ExtResource("2_icrwi")
+
+[node name="UIController" type="Node" parent="."]
+script = ExtResource("5_s7beh")
+
+[node name="goal" parent="." instance=ExtResource("3_f2yjp")]
+visible = false
+position = Vector2(1159, 183)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="resizers" parent="CanvasLayer" instance=ExtResource("4_187qn")]
+visible = false
+
+[node name="menu" parent="CanvasLayer" instance=ExtResource("4_0e62b")]
+visible = false
+size_flags_vertical = 4
+
+[node name="pauseButton" type="Button" parent="CanvasLayer"]
+visible = false
+offset_left = 1236.0
+offset_top = 10.0
+offset_right = 1268.0
+offset_bottom = 42.0
+theme = ExtResource("5_quuf8")
+icon = ExtResource("4_uute6")
+icon_alignment = 1
+
+[node name="MainMenu" parent="CanvasLayer" instance=ExtResource("8_undwo")]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -161.5
+offset_top = -170.0
+offset_right = 161.5
+offset_bottom = 170.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="speedRunScreen" parent="CanvasLayer" instance=ExtResource("10_0hm3l")]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -240.0
+offset_top = -158.0
+offset_right = 240.0
+offset_bottom = 158.0
+
+[node name="time" parent="CanvasLayer" instance=ExtResource("9_r84ah")]
+visible = false
+
+[node name="LevelSelector" parent="CanvasLayer" instance=ExtResource("10_cpv2l")]
+visible = false
+
+[node name="msg" parent="CanvasLayer" instance=ExtResource("12_4tu4k")]
+visible = false
+
+[node name="Intro" parent="CanvasLayer" instance=ExtResource("13_ghpgm")]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(552, 1465)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("WorldBoundaryShape2D_smhhb")
+
+[node name="player" parent="." instance=ExtResource("2_qaxi7")]
+visible = false
+position = Vector2(105, 425)
+
+[connection signal="visibility_changed" from="CanvasLayer/menu" to="." method="_on_menu_visibility_changed"]
+[connection signal="button_up" from="CanvasLayer/pauseButton" to="UIController" method="_on_button_button_up"]

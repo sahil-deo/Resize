@@ -1,0 +1,72 @@
+[gd_scene load_steps=4 format=3 uid="uid://bg1kbpuf773do"]
+
+[ext_resource type="Texture2D" uid="uid://br3wejpdanh67" path="res://Assets/sprites/UI/menu.png" id="1_3fjio"]
+[ext_resource type="FontFile" uid="uid://ba12ijup4tb8f" path="res://Assets/Font/ThaleahFat.ttf" id="2_punur"]
+
+[sub_resource type="Theme" id="Theme_0l14j"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -225.5
+offset_top = -225.5
+offset_right = 225.5
+offset_bottom = 225.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_3fjio")
+region_rect = Rect2(0, 0, 320, 320)
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="NinePatchRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -182.0
+offset_top = -184.5
+offset_right = 182.0
+offset_bottom = 184.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="NinePatchRect/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = SubResource("Theme_0l14j")
+theme_override_fonts/font = ExtResource("2_punur")
+theme_override_font_sizes/font_size = 56
+text = "Restart"
+
+[node name="Button2" type="Button" parent="NinePatchRect/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = SubResource("Theme_0l14j")
+theme_override_fonts/font = ExtResource("2_punur")
+theme_override_font_sizes/font_size = 56
+text = "Resume"
+
+[node name="Button3" type="Button" parent="NinePatchRect/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = SubResource("Theme_0l14j")
+theme_override_fonts/font = ExtResource("2_punur")
+theme_override_font_sizes/font_size = 56
+text = "Exit
+"

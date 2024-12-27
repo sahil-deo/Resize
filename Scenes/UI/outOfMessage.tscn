@@ -1,0 +1,51 @@
+[gd_scene load_steps=9 format=3 uid="uid://tf4dcfxiknn7"]
+
+[ext_resource type="FontFile" uid="uid://ba12ijup4tb8f" path="res://Assets/Font/ThaleahFat.ttf" id="1_46pp5"]
+[ext_resource type="Script" path="res://Scripts/UI/outOfMsg.gd" id="2_ao3v7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_l2bix"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5kqre"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0ukq4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_eyu3t"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_n0akm"]
+
+[sub_resource type="Theme" id="Theme_4hgpr"]
+default_font = ExtResource("1_46pp5")
+default_font_size = 40
+Button/colors/font_color = Color(0, 0, 0, 1)
+Button/colors/font_focus_color = Color(0, 0, 0, 1)
+Button/colors/font_hover_color = Color(0.183589, 0.183591, 0.183591, 1)
+Button/colors/font_hover_pressed_color = Color(0.52549, 0.52549, 0.52549, 1)
+Button/colors/font_pressed_color = Color(0.525101, 0.525101, 0.525101, 1)
+Button/colors/icon_focus_color = Color(0, 0, 0, 1)
+Button/font_sizes/font_size = 60
+Button/fonts/font = ExtResource("1_46pp5")
+Button/styles/disabled = SubResource("StyleBoxEmpty_l2bix")
+Button/styles/focus = SubResource("StyleBoxEmpty_5kqre")
+Button/styles/hover = SubResource("StyleBoxEmpty_0ukq4")
+Button/styles/normal = SubResource("StyleBoxEmpty_eyu3t")
+Button/styles/pressed = SubResource("StyleBoxEmpty_n0akm")
+
+[node name="msg" type="Label"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -219.5
+offset_top = 81.0
+offset_right = 219.5
+offset_bottom = 118.0
+grow_horizontal = 2
+theme = SubResource("Theme_4hgpr")
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 10
+text = "You are out of Resizers !"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("2_ao3v7")
+
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
